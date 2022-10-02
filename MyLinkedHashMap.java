@@ -44,6 +44,30 @@ public class MyLinkedHashMap<K, V> {
     } else myMapNode.setValue(value);
   }
 
+  @SuppressWarnings("unchecked")
+  public void remove(K key) {
+    int index = this.getBucketIndex(key);
+    MyLinkedList<K> myLinkedList = this.myBucketArray.get(index);
+    if (myLinkedList == null) System.out.println("couldn't find " + key + " in the hashtable.");
+    else {
+      while (this.myBucketArray.get(index) != null) {
+        INode<K> tempNode = myLinkedList.getHead();
+        if (tempNode.getKey().equals(key) && tempNode.getNext() == null) myBucketArray.set(index, null);
+        else if (tempNode.getKey().equals(key) && tempNode.getNext() != null) {
+          myLinkedList.setHead(tempNode.getNext());
+          break;
+        } else {
+          if (tempNode.getNext() != null) {
+            while (tempNode.getNext().getNext() != null && !tempNode.getNext().getKey().equals(key)) tempNode = tempNode.getNext();
+            tempNode.getNext().setKey((K) "");
+            tempNode.setNext(tempNode.getNext().getNext());
+            break;
+          }
+        }
+      }
+    }
+  }
+
   @Override
   public String toString() {
     return "LinkedHashMap: {" + myBucketArray + "}";

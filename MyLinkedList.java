@@ -5,6 +5,18 @@ public class MyLinkedList<K> {
   private INode<K> head;
   private INode<K> tail;
 
+  public INode<K> getHead() {
+    return head;
+  }
+
+  public void setHead(INode<K> head) {
+    this.head = head;
+  }
+
+  public INode<K> getTail() {
+    return tail;
+  }
+
   public void append(INode<K> newNode) {
     if (this.head == null) this.head = newNode;
 

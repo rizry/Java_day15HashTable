@@ -16,7 +16,8 @@ public class Main {
     System.out.println(hashMap);
     System.out.println("frequency of 'to': " + hashMap.get("to"));
 
-    
+
+    System.out.println();
     str = "Paranoids are not paranoid because they are paranoid but because they keep putting themselves deliberately into paranoid avoidable situations";
     MyLinkedHashMap<String, Integer> linkedHashMap = new MyLinkedHashMap<>();
     strArr = str.toLowerCase().split(" ");
@@ -28,6 +29,11 @@ public class Main {
     }
     System.out.println(linkedHashMap);
     System.out.println("frequency of 'paranoid': " + linkedHashMap.get("paranoid"));
+
+    System.out.println("frequency of 'avoidable' before removing: " + linkedHashMap.get("avoidable"));
+    linkedHashMap.remove("avoidable");
+    System.out.println("frequency of 'avoidable' after removing: " + linkedHashMap.get("avoidable"));
+    System.out.println(linkedHashMap);
 
   }
 

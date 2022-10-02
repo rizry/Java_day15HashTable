@@ -15,6 +15,7 @@ public class Main {
     }
 
     System.out.println(hashMap);
+    System.out.println("frequency of 'to': " + hashMap.get("to"));
   }
 
 }
